@@ -1,5 +1,5 @@
 <?php
-require_once(EXTENSIONS . '/importcsv/lib/parsecsv-0.3.2/parsecsv.lib.php');
+require_once(EXTENSIONS . '/importcsv/lib/parsecsv-1.3.2/parsecsv.lib.php');
 
 class contentExtensionImportcsvIndex extends AdministrationPage
 {
@@ -233,7 +233,7 @@ class contentExtensionImportcsvIndex extends AdministrationPage
                 $ignore = false;
 
                 // Import this row:
-                $row = $csvData[$i];
+                $row = $csvData[$i] ?? false;
                 if ($row != false) {
 
                     // If a unique field is used, make sure there is a field selected for this:
