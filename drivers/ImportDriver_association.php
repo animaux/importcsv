@@ -1,18 +1,20 @@
 <?php
 
 /*
- * Import Driver for type: selectbox_link
+ * Import Driver for type: association_field
  */
+ 
+require_once("ImportDriver_default.php");
 
-class ImportDriver_selectbox_link extends ImportDriver_default
+class ImportDriver_association extends ImportDriver_default
 {
     /**
      * Constructor
      * @return void
      */
-    public function ImportDriver_selectbox_link()
+    public function ImportDriver_association()
     {
-        $this->type = 'selectbox_link';
+        $this->type = 'association';
     }
 
     /**
@@ -23,7 +25,7 @@ class ImportDriver_selectbox_link extends ImportDriver_default
     private function getRelatedField()
     {
         // Get the correct ID of the related fields
-        $related_field = Symphony::Database()->fetchVar('related_field_id', 0, 'SELECT `related_field_id` FROM `tbl_fields_selectbox_link` WHERE `field_id` = ' . $this->field->get('id'));
+        $related_field = Symphony::Database()->fetchVar('related_field_id', 0, 'SELECT `related_field_id` FROM `tbl_fields_association` WHERE `field_id` = ' . $this->field->get('id'));
 
         return $related_field;
     }
